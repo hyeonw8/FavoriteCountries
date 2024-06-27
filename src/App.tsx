@@ -18,15 +18,14 @@ function App() {
     try {
       const response = await countryApi.get<CountryWithIsClicked[]>('/all'); 
       const originalCountries = response.data;
-      const sortedCountries = originalCountries.sort((a, b) =>
+      const sortedCountries = originalCountries.sort((a: CountryWithIsClicked, b: CountryWithIsClicked) =>
         a.name.common.localeCompare(b.name.common)
       );
-      const countryWithIsClicked = sortedCountries.map((country) => ({
+      const countryWithIsClicked = sortedCountries.map((country : CountryWithIsClicked) => ({
         ...country,
         isClicked: false,
       }));
       setCountries(countryWithIsClicked);
-      console.log(countryWithIsClicked);
 
     } catch (error) {
       console.error('api 오류:', error);
