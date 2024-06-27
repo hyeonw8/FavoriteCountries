@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import CountryCard from './CountryCard';
 import { CountryWithIsClicked } from '../types/Country.type';
 
@@ -9,10 +8,6 @@ interface Props {
 }
 
 const CountryList = ({ countries, setCountries, isClicked }: Props) => {
-  // const [favoriteCountries, setFavoriteCountries] = useState<
-  //   CountryWithIsClicked[]
-  // >([]); // favoriteCountries에 들어간 국가
-
   const toggleCountry = (selectedCountry: CountryWithIsClicked) => {
     setCountries(
       countries.map((country) =>
@@ -21,11 +16,6 @@ const CountryList = ({ countries, setCountries, isClicked }: Props) => {
           : country
       )
     );
-    // setFavoriteCountries((prev) => {
-    //   return prev.filter(
-    //     (country) => country.name.common !== selectedCountry.name.common
-    //   );
-    // });
   };
 
   return (

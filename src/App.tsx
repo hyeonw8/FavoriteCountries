@@ -16,7 +16,7 @@ function App() {
 
   const getCountries = async (): Promise<void> => {
     try {
-      const response = await countryApi.get<CountryWithIsClicked[]>('/all'); // 방법 2, 없어도 되긴 함
+      const response = await countryApi.get<CountryWithIsClicked[]>('/all'); 
       const originalCountries = response.data;
       const sortedCountries = originalCountries.sort((a, b) =>
         a.name.common.localeCompare(b.name.common)
@@ -27,7 +27,7 @@ function App() {
       }));
       setCountries(countryWithIsClicked);
       console.log(countryWithIsClicked);
-      // return CountryWithIsClicked; // as Country; // 타입 단언, 타입을 알려주는거 1번 방법
+
     } catch (error) {
       console.error('api 오류:', error);
       if (error instanceof AxiosError) {

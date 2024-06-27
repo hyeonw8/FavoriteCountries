@@ -7,33 +7,6 @@ interface Props {
 }
 
 const CountryCard = ({ country, onClick, isClicked }: Props) => {
-  // const handleClickCard = (selectedCountry: CountryWithIsClicked) => {
-  //   // 클릭한 국가 카드가 이미 좋아요에 속해있는지 확인
-  //   const isSelected = favoriteCountries.some(
-  //     (country) => country.name.common === selectedCountry.name.common
-  //   );
-
-  //   if (isSelected) {
-  //     setCountries((prev) => {
-  //       return [...prev, selectedCountry];
-  //     });
-  //     setFavoriteCountries((prev) => {
-  //       return prev.filter(
-  //         (country) => country.name.common !== selectedCountry.name.common
-  //       );
-  //     });
-  //   } else {
-  //     setCountries((prev) => {
-  //       return prev.filter(
-  //         (country) => country.name.common !== selectedCountry.name.common
-  //       );
-  //     });
-  //     setFavoriteCountries((prev) => {
-  //       return [...prev, selectedCountry];
-  //     });
-  //   }
-  // };
-
 
   return (
     <div
