@@ -1,13 +1,13 @@
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
-import CountryList from './components/CountryList';
-import TopButton from './util/TopButton';
 import { useEffect, useState } from 'react';
 import { CountryWithIsClicked } from './types/Country.type';
 import { AxiosError } from 'axios';
 import { countryApi } from './api/countries';
 import Layout from './components/common/Layout';
+import CountryList from './components/CountryList';
+import TopButton from './util/TopButton';
 
 function App() {
   const [countries, setCountries] = useState<CountryWithIsClicked[]>([]);
