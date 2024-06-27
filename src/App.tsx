@@ -16,17 +16,18 @@ function App() {
 
   const getCountries = async (): Promise<void> => {
     try {
-      const response = await countryApi.get<CountryWithIsClicked[]>('/all'); 
-      const originalCountries = response.data;
-      const sortedCountries = originalCountries.sort((a: CountryWithIsClicked, b: CountryWithIsClicked) =>
-        a.name.common.localeCompare(b.name.common)
+      const response = await countryApi.get<CountryWithIsClicked[]>('/all');
+      const originalCountries: CountryWithIsClicked[] = response.data;
+      const sortedCountries: CountryWithIsClicked[] = originalCountries.sort(
+        (a, b) => a.name.common.localeCompare(b.name.common)
       );
-      const countryWithIsClicked = sortedCountries.map((country : CountryWithIsClicked) => ({
-        ...country,
-        isClicked: false,
-      }));
+      const countryWithIsClicked: CountryWithIsClicked[] = sortedCountries.map(
+        (country) => ({
+          ...country,
+          isClicked: false,
+        })
+      );
       setCountries(countryWithIsClicked);
-
     } catch (error) {
       console.error('api 오류:', error);
       if (error instanceof AxiosError) {
@@ -45,8 +46,11 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="h-screen  flex justify-center items-center ">
-        <div className="text-xl flex justify-center items-center bg-slate-200 rounded-lg w-[400px] h-[80px]">로딩 중...🇰🇷</div>
+      <div className="min-h-screen flex flex-col bg-gray-100 justify-center items-center ">
+        <div className="text-xl flex flex-col p-4 justify-center items-center gap-2 bg-slate-200 shadow-md rounded-lg w-[400px] h-[80px]">
+          <p className='font-semibold'>Favorite Countries</p>
+          <p className='text-base'>250여개의 국가 데이터 로딩 중...🇰🇷</p>
+        </div>
       </div>
     );
   }
