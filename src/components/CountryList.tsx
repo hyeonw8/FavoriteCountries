@@ -8,7 +8,7 @@ interface Props {
 }
 
 const CountryList = ({ countries, setCountries, isClicked }: Props) => {
-  const toggleCountry = (selectedCountry: CountryWithIsClicked) => {
+  const toggleCountry = (selectedCountry: CountryWithIsClicked): void => {
     setCountries(
       countries.map((country) =>
         country.name.common === selectedCountry.name.common
